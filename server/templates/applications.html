@@ -49,12 +49,12 @@ border-bottom:1px dotted gray;
     <p>
       This is the list of applications you have registered:
     </p>
-    <form action="/applications/" method="post">{% csrf_token %}
+    <form action="/api/applications/" method="post">{% csrf_token %}
       <div>
       <table>
 	<p>
-	  <a href="/register/">Register New App</a> |
-	  <a href="/logout/">Logout</a>
+	  <a href="/api/register/">Register New App</a> |
+	  <a href="/api/logout/">Logout</a>
 	</p>
 	<tr>
 	  <th>Name</th><th>Description</th><th>Consumer Key</th><th>Consumer Secret</th>
@@ -65,7 +65,7 @@ border-bottom:1px dotted gray;
 	  <td>{{ app.app_desc }}</td>
 	  <td>{{ app.key }}</td>
 	  <td>{{ app.secret }}</td>
-	  <td><a href="/register/">More</a></td>
+	  <td><a href="/api/register/">More</a></td>
 	</tr>
 	{% endfor %}
       </table>

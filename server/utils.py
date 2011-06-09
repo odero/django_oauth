@@ -1,5 +1,5 @@
 import oauth2 as oauth
-from server.models import *
+from models import *
 from hashlib import md5, sha1
 
 def generate_key():
@@ -11,7 +11,6 @@ def generate_secret():
 class DataStore(object):
     """
     Uses the database to store and retrieve consumers and tokens
-    Note: Borrowed from the Leah Culiver's OAuth server implementation
     """
     def __init__(self, request):
         self.consumer = ''
@@ -105,7 +104,6 @@ class DataStore(object):
 class DataStoreServer(oauth.Server):
     """
     Adds data storage abilities to the base OAuth Server
-    Note: Borrowed from the Leah Culiver's OAuth server implementation
     """
     def __init__(self, signature_methods=None, data_store=None):
         self.data_store = data_store

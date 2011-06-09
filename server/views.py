@@ -1,4 +1,3 @@
-# Create your views here.
 
 import oauth2 as oauth
 import functools
@@ -19,7 +18,6 @@ sys.stderr = sys.stdout
 def serve_oauth(func):
     @functools.wraps(func)
     def wrapper(*args):
-        print 'toast'
         request = args[0]
         meta = {}
         postdata = None
@@ -94,7 +92,6 @@ def access_token(request, oauth_server, oauth_request):
     # else
     # 
     try:
-        print oauth_request
         token = oauth_server.fetch_access_token(oauth_request)
     except oauth.Error, err:
         return HttpResponse(err, status=401)
@@ -131,7 +128,7 @@ def register(request):
     else:
         return render_to_response('register.html', {'form':form}, context_instance=RequestContext(request))
     
-    return HttpResponseRedirect('/applications/')
+    return HttpResponseRedirect('/api/applications/')
 
 @login_required
 def applications(request):
@@ -145,4 +142,4 @@ def applications(request):
 @login_required
 def logout(request):
     views.logout(request)
-    return HttpResponseRedirect('/applications/')
+    return HttpResponseRedirect('/')

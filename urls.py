@@ -9,6 +9,7 @@ urlpatterns = patterns(
     '',
     (r'^admin/', include(admin.site.urls)),
     (r'^login/$', 'django.contrib.auth.views.login', {'template_name':'admin/login.html'}),
+    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )
 
 urlpatterns += patterns(
@@ -16,16 +17,11 @@ urlpatterns += patterns(
     # Example:
     # (r'^oa_server/', include('oa_server.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
     (r'^oauth/request_token/$', 'request_token'),
     (r'^oauth/authorize/$', 'authorize'),
     (r'^oauth/access_token/$', 'access_token'),
     (r'^oauth/resource/$', 'get_resource'),
-    (r'^register/$', 'register'),
-    (r'^applications/$', 'applications'),
-    (r'^logout/$', 'logout'),
+    (r'^api/register/$', 'register'),
+    (r'^api/applications/$', 'applications'),
+    (r'^api/logout/$', 'logout'),
 )

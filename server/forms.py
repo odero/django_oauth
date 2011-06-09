@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from server.models import *
+from models import *
 
 class ConsumerRegisterForm(ModelForm):
     class Meta:
