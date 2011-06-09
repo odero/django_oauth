@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Register a new applications</title>
+
+<style>
+body {
+font-family:"Lucida Console", "Verdana", "Tahoma", "DejaVu Sans";
+font-size:13px;
+margin:0 30%;
+}
+form {
+float:left;
+border:1px;
+background-color:#f1f1ed;
+margin:3px;
+padding:4px;
+border:1px solid #d4d4d4;
+}
+
+
+table {
+border-collapse:collapse;
+width:99%;
+}
+
+table, th, td {
+border:1px solid silver;
+}
+
+td, th {
+text-align:left;
+padding:4px;
+}
+
+a {
+color:Brown;
+text-decoration: none;
+border-bottom:1px dotted gray;
+}
+
+table input {
+width:400px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <p>
+      This is the list of applications you have registered:
+    </p>
+    <form action="/register/" method="post">{% csrf_token %}
+      <table>
+	<p>
+	  <a href="/applications/">Registered Applications</a> |
+	  <a href="/logout/">Logout</a>
+	</p>
+      {{ form.as_table }}
+      </table>
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</body>
+</html>

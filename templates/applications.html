@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Registered Applications</title>
+
+<style>
+body {
+font-family:"Lucida Console", "Verdana", "Tahoma", "DejaVu Sans";
+font-size:13px;
+}
+.container {
+width:80%;
+margin:0 20% 0 20%;
+}
+form {
+float:left;
+border:1px;
+background-color:#f1f1ed;
+margin:3px;
+padding:4px;
+border:1px solid #d4d4d4;
+}
+
+
+table {
+border-collapse:collapse;
+}
+
+table, th, td {
+border:1px solid silver;
+}
+
+td, th {
+text-align:left;
+padding:4px;
+}
+
+a {
+color:Brown;
+text-decoration: none;
+border-bottom:1px dotted gray;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <p>
+      This is the list of applications you have registered:
+    </p>
+    <form action="/applications/" method="post">{% csrf_token %}
+      <div>
+      <table>
+	<p>
+	  <a href="/register/">Register New App</a> |
+	  <a href="/logout/">Logout</a>
+	</p>
+	<tr>
+	  <th>Name</th><th>Description</th><th>Consumer Key</th><th>Consumer Secret</th>
+	</tr>
+	{% for app in apps%}
+	<tr>
+	  <td>{{ app.app_name }}</td>
+	  <td>{{ app.app_desc }}</td>
+	  <td>{{ app.key }}</td>
+	  <td>{{ app.secret }}</td>
+	  <td><a href="/register/">More</a></td>
+	</tr>
+	{% endfor %}
+      </table>
+      </div>
+      <!--<input type="submit" value="Submit" />-->
+    </form>
+  </div>
+</body>
+</html>
